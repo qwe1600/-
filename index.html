@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Онлайн-библиотека</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #1e1d1d;
+    }
+
+    h1 {
+      text-align: center;
+      list-style: 300px;
+      color: #fff;
+    }
+
+    .search {
+      max-width: 400px;
+      margin: 20px auto;
+      display: flex;
+      border: 1px solid #ccc;
+    }
+
+    .search input {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .library {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .book {
+      background: #9f481f;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .book img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .book h3 {
+      margin: 10px 0 5px;
+      color: #fff;
+    }
+
+    .author {
+      font-size: 14px;
+      color: #f6f6f6;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 14px;
+      flex: 1;
+      color: #ccc;
+    }
+
+    .book button {
+      margin-top: 10px;
+      padding: 10px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .book button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Библиотека тёмной литературы</h1>
+
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="Поиск книги по названию..." />
+  </div>
+
+  <div class="library" id="library">
+    <div class="book" data-title="Сатанинская библия" data-pdf="Тёмная литература /Сатанинская библия .pdf">
+      <img src="Тёмная литература /Сатанинская библия .pdf" alt="">
+      <h3>Сатанинская библия</h3>
+      <div class="author">А.Ш.ЛаВей</div>
+      <div class="description">Основной текст современного сатанизма ЛаВея</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Сатанинская ведьма" data-pdf="Тёмная литература /Сатанинская ведьма .pdf">
+      <img src="Тёмная литература /Сатанинская ведьма .pdf" alt="">
+      <h3>Сатанинская ведьма</h3>
+      <div class="author">А.Ш.ЛаВей</div>
+      <div class="description">О практической психологии влияния, манипуляции, харизме и «магии» в социальном смысле</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Сатанинские ритуалы" data-pdf="Тёмная литература /Сатанинские ритуалы .pdf">
+      <img src="Тёмная литература /Сатанинские ритуалы .pdf" alt="">
+      <h3>Сатанинские ритуалы</h3>
+      <div class="author">А.Ш.ЛаВей</div>
+      <div class="description">Описание ритуалов сатанизма.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Compassionate Satanism" data-pdf="Тёмная литература /_OceanofPDF.com_Compassionate_Satanism_-_Lilith_Starr.pdf">
+      <img src="Тёмная литература /_OceanofPDF.com_Compassionate_Satanism_-_Lilith_Starr.pdf" alt="">
+      <h3>Compassionate Satanism</h3>
+      <div class="author">Лилит Старр</div>
+      <div class="description">Современный взгляд на сатанизм с упором на эмпатию, личную ответственность</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Speak of the Devil" data-pdf="Тёмная литература /speak-of-the-devil-how-the-satanic-temple-is-changing-the-way-we-talk-about-religion-0190948493-9780190948498.pdf">
+      <img src="Тёмная литература /speak-of-the-devil-how-the-satanic-temple-is-changing-the-way-we-talk-about-religion-0190948493-9780190948498.pdf" alt="">
+      <h3>Speak of the Devil</h3>
+      <div class="author">Джозеф П. Лейкок</div>
+      <div class="description">Исследование сатанизма и его влияния на общество.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Book of the Witch Moon" data-pdf="Тёмная литература /Book of the Witch Moon_ Chaos, Vampiric & Luciferian Sorcery, The Choronzon Edition ( PDFDrive ).pdf">
+      <img src="Тёмная литература /Book of the Witch Moon_ Chaos, Vampiric & Luciferian Sorcery, The Choronzon Edition ( PDFDrive ).pdf" alt="">
+      <h3>Book of the Witch Moon</h3>
+      <div class="author">Майкл В. Форд</div>
+      <div class="description">Оккультная практика связаная с люциферианством</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /Michael Ford - Luciferian Witchcraft - Grimoire of the Serpent.pdf" data-pdf="Тёмная литература /Michael Ford - Luciferian Witchcraft - Grimoire of the Serpent.pdf">
+      <img src="Тёмная литература /Michael Ford - Luciferian Witchcraft - Grimoire of the Serpent.pdf" alt="">
+      <h3>Luciferian Witchcraft</h3>
+      <div class="author">Майкл В. Форд</div>
+      <div class="description">Люциферианская магическая система</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /Libel-Falxsifer-sur..pdf" data-pdf="Тёмная литература /Libel-Falxsifer-sur..pdf">
+      <img src="Тёмная литература /Libel-Falxsifer-sur..pdf" alt="">
+      <h3>Libel-Falxsifer</h3>
+      <div class="author">N.A-A.218</div>
+      <div class="description">оккультный гримуар</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /Luciferian Goetia.pdf" data-pdf="Тёмная литература /Luciferian Goetia.pdf">
+      <img src="Тёмная литература /Luciferian Goetia.pdf" alt="">
+      <h3>Goetia</h3>
+      <div class="author">Майкл В. Форд</div>
+      <div class="description">Гримуар, посвященный люциферианской магии.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /The Bible of the Adversary (Michael W. Ford).pdf" data-pdf="Тёмная литература /The Bible of the Adversary (Michael W. Ford).pdf">
+      <img src="Тёмная литература /The Bible of the Adversary (Michael W. Ford).pdf" alt="">
+      <h3>The Bible of the Adversary</h3>
+      <div class="author">Майкл В. Форд</div>
+      <div class="description">Люцифер представлен как носитель знания, света разума и индивидуальной воли.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /Book of Coming Forth by Night.pdf" data-pdf="Тёмная литература /Book of Coming Forth by Night.pdf">
+      <img src="Тёмная литература /Book of Coming Forth by Night.pdf" alt="">
+      <h3>Book of Coming Forth by Night</h3>
+      <div class="author">Храм Сета</div>
+      <div class="description">Основной текст Храма Сета.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /a-witches-bible-the-complete-witches-handbook-by-janet-and-stewart-farrar_compress.pdf" data-pdf="Тёмная литература /a-witches-bible-the-complete-witches-handbook-by-janet-and-stewart-farrar_compress.pdf">
+      <img src="Тёмная литература /a-witches-bible-the-complete-witches-handbook-by-janet-and-stewart-farrar_compress.pdf" alt="">
+      <h3>A Witches Bible</h3>
+      <div class="author">Джанет и Стюарт Фаррар</div>
+      <div class="description">Полный справочник для ведьм.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /fdh400b2465085.pdf" data-pdf="Тёмная литература /fdh400b2465085.pdf">
+      <img src="Тёмная литература /fdh400b2465085.pdf" alt="">
+      <h3>Aradia or the Gospel of the Witches</h3>
+      <div class="author">Charles Godfrey Leland</div>
+      <div class="description">Классический текст о ведьмах и их верованиях.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /The Black Book of Satan - Codex Saerus.pdf" data-pdf="Тёмная литература /The Black Book of Satan - Codex Saerus.pdf">
+      <img src="Тёмная литература /The Black Book of Satan - Codex Saerus.pdf" alt="">
+      <h3>The Black Book of Satan</h3>
+      <div class="author">ONA</div>
+      <div class="description">Идеологический текст Ордена Девяти Углов, посвящённый зловещему пути сатанизма.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /ONA - Hostia Volume I.pdf" data-pdf="Тёмная литература /ONA - Hostia Volume I.pdf">
+      <img src="Тёмная литература /ONA - Hostia Volume I.pdf" alt="">
+      <h3>ONA - Hostia Volume I</h3>
+      <div class="author">ONA</div>
+      <div class="description">богохульная символика как метод освобождения от культурных условностей</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /ONA - Hostia Volume II.pdf" data-pdf="Тёмная литература /ONA - Hostia Volume II.pdf">
+      <img src="Тёмная литература /ONA - Hostia Volume II.pdf" alt="">
+      <h3>ONA - Hostia Volume II</h3>
+      <div class="author">ONA</div>
+      <div class="description">ритуалы и формулы как средства самоинициации</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /ONA - Hostia Volume III.pdf" data-pdf="Тёмная литература /ONA - Hostia Volume III.pdf">
+      <img src="Тёмная литература /ONA - Hostia Volume III.pdf" alt="">
+      <h3>ONA - Hostia Volume III</h3>
+      <div class="author">ONA</div>
+      <div class="description">меньше прямого ритуала, больше внутренней работы</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /Susan_Sontag_Under_the_Sign_of_Saturn_1981.pdf" data-pdf="Тёмная литература /Susan_Sontag_Under_the_Sign_of_Saturn_1981.pdf">
+      <img src="Тёмная литература /Susan_Sontag_Under_the_Sign_of_Saturn_1981.pdf" alt="">
+      <h3>Under the Sign of Saturn</h3>
+      <div class="author">Сьюзен Сонтаг</div>
+      <div class="description">Сборник эссе о культуре, политике и искусстве.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /Stephen_E_Flowers_The_Fraternitas_Saturni_History,_Doctrine,_and.pdf" data-pdf="Тёмная литература /Stephen_E_Flowers_The_Fraternitas_Saturni_History,_Doctrine,_and.pdf">
+      <img src="Тёмная литература /Stephen_E_Flowers_The_Fraternitas_Saturni_History,_Doctrine,_and.pdf" alt="">
+      <div class="author">Стивен Э. Флауэрс</div>
+      <div class="description">Исследование истории, доктрины и ритуалов Фратернитас Сатурни.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /vdoc.pub_the-emerald-tablet-alchemy-of-personal-transformation.pdf" data-pdf="Тёмная литература /vdoc.pub_the-emerald-tablet-alchemy-of-personal-transformation.pdf">
+      <img src="Тёмная литература /vdoc.pub_the-emerald-tablet-alchemy-of-personal-transformation.pdf" alt="">
+      <h3>Alchemy for Personal Transformation</h3>
+      <div class="author">Деннис Уильям Хаук</div>
+      <div class="description">Руководство по принципам алхимии и личностной трансформации.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /book_alchemy.pdf" data-pdf="Тёмная литература /book_alchemy.pdf">
+      <img src="Тёмная литература /book_alchemy.pdf" alt="">
+      <h3>Книга алхимии</h3>
+      <div class="author">Владимир Геннадьевич Рохмистров</div>
+      <div class="description">Антология включает, посвященные истории возникновения и развития алхимии.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /64459391.pdf" data-pdf="Тёмная литература /64459391.pdf">
+      <img src="Тёмная литература /64459391.pdf" alt="">
+      <h3>Книга алхимии</h3>
+      <div class="author">Ларс Орстрём</div>
+      <div class="description">Философско-мистический роман о последнем алхимике, живущем в Париже, где алхимия раскрывается как путь внутреннего преображения</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /ГЕНЗЕЛЬ И ГРЕТЕЛЬ 1812.pdf" data-pdf="Тёмная литература /ГЕНЗЕЛЬ И ГРЕТЕЛЬ 1812.pdf">
+      <img src="Тёмная литература /ГЕНЗЕЛЬ И ГРЕТЕЛЬ 1812.pdf" alt="">
+      <h3>Гензель и Гретель</h3>
+      <div class="author">Братья Гримм</div>
+      <div class="description">Сказка о двух детях, потерявшихся в лесу и попавших в дом ведьмы.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /Stranitsy_iz_Tifonianskaya_Vampirskaya_Magiya.pdf" data-pdf="Тёмная литература /Stranitsy_iz_Tifonianskaya_Vampirskaya_Magiya.pdf">
+      <img src="Тёмная литература /Stranitsy_iz_Tifonianskaya_Vampirskaya_Magiya.pdf" alt="">
+      <h3>Страницы из Тифонианской Вампирской Магии</h3>
+      <div class="author">Майкл У. Форд</div>
+      <div class="description">Исследование вампирской магии и ее практик.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /94.pdf" data-pdf="Тёмная литература /94.pdf">
+      <img src="Тёмная литература /94.pdf" alt="">
+      <h3>???</h3>
+      <div class="author">Неизвестный автор</div>
+      <div class="description">Оккультический журнал</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /Monmutskiy_Istoriya_brittov_9f10f0_242119.pdf" data-pdf="Тёмная литература /Monmutskiy_Istoriya_brittov_9f10f0_242119.pdf">
+      <img src="Тёмная литература /Monmutskiy_Istoriya_brittov_9f10f0_242119.pdf" alt="">
+      <h3>История бриттов</h3>
+      <div class="author">Гальфрид Монмутский</div>
+      <div class="description">Исторический труд о бриттах и их культуре.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /Julius-Evola-Introduction-to-Magic.pdf" data-pdf="Тёмная литература /Julius-Evola-Introduction-to-Magic.pdf">
+      <img src="Тёмная литература /Julius-Evola-Introduction-to-Magic.pdf" alt="">
+      <h3>Введение в магию</h3>
+      <div class="author">Юлий Эвола</div>
+      <div class="description">Классический труд по магии и оккультизму.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /evola_julius_the_yoga_of_power.pdf" data-pdf="Тёмная литература /evola_julius_the_yoga_of_power.pdf">
+      <img src="Тёмная литература /evola_julius_the_yoga_of_power.pdf" alt="">
+      <h3>THE YOGA OF POWER</h3>
+      <div class="author">Юлий Эвола</div>
+      <div class="description">Йога власти - это исследование магии и оккультизма.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /toaz.info-2-5420427007349491120-pr_cd04a22eb90c9491f12f10a13040fa78.pdf" data-pdf="Тёмная литература /toaz.info-2-5420427007349491120-pr_cd04a22eb90c9491f12f10a13040fa78.pdf">
+      <img src="Тёмная литература /toaz.info-2-5420427007349491120-pr_cd04a22eb90c9491f12f10a13040fa78.pdf" alt="">
+      <h3>NECROMANTIC SACRAMENTS</h3>
+      <div class="author">С. КОННОЛИ</div>
+      <div class="description">чтение о некромантии и ритуалах.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /642423999-kupdf-net-wortcunning-for-daemonolatry-a-formulary-for-the-daemonolater-alchemist-and-gardener-pdf.pdf" data-pdf="Тёмная литература /642423999-kupdf-net-wortcunning-for-daemonolatry-a-formulary-for-the-daemonolater-alchemist-and-gardener-pdf.pdf">
+      <img src="Тёмная литература /642423999-kupdf-net-wortcunning-for-daemonolatry-a-formulary-for-the-daemonolater-alchemist-and-gardener-pdf.pdf" alt="">
+      <h3>WORTCUNNING FOR DAEMONOLATRY</h3>
+      <div class="author">С. КОННОЛИ</div>
+      <div class="description">книга о травах и их использовании в ритуалах.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /DuQuette - Illustrated Goetia.pdf" data-pdf="Тёмная литература /DuQuette - Illustrated Goetia.pdf">
+      <img src="Тёмная литература /DuQuette - Illustrated Goetia.pdf" alt="">
+      <h3>ILLUSTRATED GOETIA</h3>
+      <div class="author">Лон Милло</div>
+      <div class="description">Иллюстрированное руководство по Гоетии.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+    <div class="book" data-title="Тёмная литература /completedemonolatrymagic.pdf" data-pdf="Тёмная литература /completedemonolatrymagic.pdf">
+      <img src="Тёмная литература /completedemonolatrymagic.pdf" alt="">
+      <h3>COMPLETEDEMONOLATRY MAGIC</h3>
+      <div class="author">Дж. Торп</div>
+      <div class="description">фундаментальный труд по демонолатрии.</div>
+      <button onclick="openPDF(this)">Читать</button>
+    </div>
+
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const books = document.querySelectorAll('.book');
+
+    searchInput.addEventListener('input', () => {
+      const value = searchInput.value.toLowerCase();
+
+      books.forEach(book => {
+        const title = book.dataset.title.toLowerCase();
+        book.style.display = title.includes(value) ? 'flex' : 'none';
+      });
+    });
+
+    function openPDF(button) {
+      const book = button.parentElement;
+      const pdf = book.getAttribute('data-pdf');
+      if (pdf) {
+        window.open(pdf, '_blank');
+      } else {
+        alert('PDF-файл не найден');
+      }
+    }
+  </script>
+
+</body>
+</html>
